@@ -57,16 +57,16 @@ def jogar_dados():
 def PainelApostas(PlbAposta,FAposta,AcAposta,TAposta):
     print("\n------------Apostas Realizadas:------------")
     if PlbAposta>0:
-      print("-Pass Line Bat: {0} Fichas" .format(str(PlbAposta)))
+      print("-Pass Line Bat: {0} fichas" .format(str(PlbAposta)))
     if FAposta>0:
-      print("-Field: {0} Fichas" .format(str(FAposta)))
+      print("-Field: {0} fichas" .format(str(FAposta)))
     if AcAposta>0:
-      print("-Any Craps: {0} Fichas" .format(str(AcAposta)))
+      print("-Any Craps: {0} fichas" .format(str(AcAposta)))
     if TAposta>0:
-      print("-Twelve: {0} Fichas" .format(str(TAposta)))
+      print("-Twelve: {0} fichas" .format(str(TAposta)))
     print("---------------------------------------------")
-    print("Fichas em Mão: {0} Fichas" .format(str(fichas_iniciais)))
-    print("Fichas em Aposta: {0} Fichas" .format(str(PlbAposta+FAposta+AcAposta+TAposta)))
+    print("Fichas em Mão: {0} fichas" .format(str(fichas_iniciais)))
+    print("Fichas em Aposta: {0} fichas" .format(str(PlbAposta+FAposta+AcAposta+TAposta)))
 
 print("")
 print(" .----------------.  .----------------.  .----------------.  .----------------.  .----------------.")
@@ -104,27 +104,27 @@ while Game_on:
   
   while RespostaApostarW:
     if fase == 1:
-      EscolherAposta = str(input("\nEscolha uma aposta: Pass Line Bet[plb]| Field(f)| Any Craps[ac]| Twelve[t]| Sair[x]\nSua escolha: "))
+      EscolherAposta = str(input("\nEscolha uma aposta: Pass Line Bet[plb]| Field(f) | Any Craps[ac] | Twelve[t] | Sair[x]\nSua escolha: "))
       while True:
         if EscolherAposta == 'plb' or EscolherAposta == 'f' or EscolherAposta == 'ac' or EscolherAposta == 't' or EscolherAposta == 'x':
           break
     if fase == 2:
-      EscolherAposta = str(input("\nEscolha uma aposta: Field(f)| Any Craps[ac]| Twelve[t]| Cancelar[c] \nSua escolha: "))
+      EscolherAposta = str(input("\nEscolha uma aposta: Field(f) | Any Craps[ac] | Twelve[t] | Cancelar[c] \nSua escolha: "))
       while True:
         if EscolherAposta == 'f' or EscolherAposta == 'ac' or EscolherAposta == 't' or EscolherAposta == 'c':
           break
     
     if fichas_iniciais == 0 and SomaDadosPlb ==0:
-      print('\nJogador Expulso da Mesa por falta de Fichas!')
+      print('\nJogador Expulso da Mesa por falta de fichas!')
       Game_on = False 
       RespostaApostarW = False
       break
 
     while True:
       if EscolherAposta != 'c' and EscolherAposta != 'x':
-        ValorAposta = int(input("\nDigite o valor da Aposta:\nValor: "))
+        ValorAposta = int(input("\nDigite o valor da aposta:\nValor: "))
         if ValorAposta > fichas_iniciais:
-          print("\nVocê não tem Fichas suficientes para realizar esta aposta.\n\nNúmero de Fichas disponíveis: {0}" .format(fichas_iniciais))
+          print("\nVocê não tem fichas suficientes para realizar esta aposta.\n\nNúmero de fichas disponíveis: {0}" .format(fichas_iniciais))
         else:
           fichas_iniciais-=ValorAposta
           break
@@ -142,7 +142,7 @@ while Game_on:
     elif EscolherAposta == 'x':
       Confirmacao = input("Deseja REALMENTE sair do jogo?[s|n]\nSua escolha: ")
       if Confirmacao == 's':
-        print("\nVocê desistiu do jogo com {0} Fichas." .format(str(fichas_iniciais)))
+        print("\nVocê desistiu do jogo com {0} fichas." .format(str(fichas_iniciais)))
         RespostaApostarW = False
         Game_on = False
         break
@@ -162,64 +162,64 @@ while Game_on:
       Dado1 = jogar_dados()
       Dado2 = jogar_dados()
       SomaDados = Dado1+Dado2
-      print("\nSoma: {0}" .format(SomaDados))
+      print("\nA soma dos dados é: {0}" .format(SomaDados))
       if PlbAposta > 0:
         if fase == 1:
           if SomaDados == 7 or SomaDados == 11: #Win no Pass Line Bet
             fichas_iniciais+= 2*PlbAposta
-            print("\nParabéns! Você ganhou {0} Fichas no Pass Line Bat!\n\nNúmero de Fichas disponíveis: {1}" .format(str(PlbAposta), str(fichas_iniciais)))
+            print("\nParabéns! Você ganhou {0} fichas no Pass Line Bat!\n\nNúmero de fichas disponíveis: {1}" .format(str(PlbAposta), str(fichas_iniciais)))
             PlbAposta = 0
           elif SomaDados == 2 or SomaDados == 3 or SomaDados == 12: #Craps
-            print("\nVocê perdeu {0} Fichas no Pass Line Bat.\n\nNúmero de Fichas disponíveis: {1}" .format(str(PlbAposta), str(fichas_iniciais)))
+            print("\nVocê perdeu {0} fichas no Pass Line Bat.\n\nNúmero de fichas disponíveis: {1}" .format(str(PlbAposta), str(fichas_iniciais)))
             PlbAposta = 0
           elif SomaDados == 4 or SomaDados == 5 or SomaDados == 6 or SomaDados == 8 or SomaDados == 9 or SomaDados == 10:
-            print("\nO Point foi iniciado! Fichas apostadas: {0}.\n\nNúmero de Fichas disponíveis: {1} " .format(str(PlbAposta), str(fichas_iniciais)))
+            print("\nO Point foi iniciado! Fichas apostadas: {0}.\n\nNúmero de fichas disponíveis: {1} " .format(str(PlbAposta), str(fichas_iniciais)))
             fase = 2
             SomaDadosPlb = SomaDados
         elif fase == 2:
           if SomaDadosPlb == SomaDados:
             fichas_iniciais+= 2*PlbAposta
-            print("\nParabéns! Você ganhou {0} Fichas no Pass Line Bat!\n\nNúmero de Fichas disponíveis: {1}" .format(str(PlbAposta), str(fichas_iniciais)))
+            print("\nParabéns! Você ganhou {0} fichas no Pass Line Bat!\n\nNúmero de fichas disponíveis: {1}" .format(str(PlbAposta), str(fichas_iniciais)))
             fase = 1
             PlbAposta = 0
             SomaDadosPlb = 0
           elif SomaDados == 7:
-            print("\nVocê perdeu {0} Fichas no Pass Line Bat.\n\nNúmero de Fichas disponíveis: {1}" .format(str(PlbAposta), str(fichas_iniciais)))
+            print("\nVocê perdeu {0} fichas no Pass Line Bat.\n\nNúmero de fichas disponíveis: {1}" .format(str(PlbAposta), str(fichas_iniciais)))
             PlbAposta = 0
             fase = 1
             PlbAposta = 0
             SomaDadosPlb = 0
           else:
-            print("\nO Pass Line Bat continua na fase Point com {0} Fichas." .format(str(PlbAposta)))
+            print("\nO Pass Line Bat continua na fase Point com {0} fichas." .format(str(PlbAposta)))
       
       if FAposta > 0:
         if SomaDados == 5 or SomaDados == 6 or SomaDados == 7 or SomaDados ==8:
-          print("\nVocê perdeu {0} Fichas no Field.\n\nNúmero de Fichas disponíveis: {1}" .format(str(FAposta), str(fichas_iniciais)))
+          print("\nVocê perdeu {0} fichas no Field.\n\nNúmero de fichas disponíveis: {1}" .format(str(FAposta), str(fichas_iniciais)))
         elif SomaDados == 3 or SomaDados == 4 or SomaDados == 9 or SomaDados ==10 or SomaDados ==11:
           fichas_iniciais+= 2*FAposta
-          print("\nParabéns! Você ganhou {0} Fichas no Field!\n\nNúmero de Fichas disponíveis: {1}" .format(str(FAposta), str(fichas_iniciais)))
+          print("\nParabéns! Você ganhou {0} fichas no Field!\n\nNúmero de fichas disponíveis: {1}" .format(str(FAposta), str(fichas_iniciais)))
         elif SomaDados == 2:
           fichas_iniciais+= 3*FAposta
-          print("\nParabéns! Você ganhou {0} Fichas no Field!\n\nNúmero de Fichas disponíveis: {1}" .format(str(FAposta), str(fichas_iniciais)))
+          print("\nParabéns! Você ganhou {0} fichas no Field!\n\nNúmero de fichas disponíveis: {1}" .format(str(FAposta), str(fichas_iniciais)))
         elif SomaDados == 12:
           fichas_iniciais+= 4*FAposta
-          print("\nParabéns! Você ganhou {0} Fichas no Field!\n\nNúmero de Fichas disponíveis: {1}" .format(str(FAposta), str(fichas_iniciais)))
+          print("\nParabéns! Você ganhou {0} fichas no Field!\n\nNúmero de fichas disponíveis: {1}" .format(str(FAposta), str(fichas_iniciais)))
         FAposta = 0
       
       if AcAposta > 0:
         if SomaDados == 2 or SomaDados == 3 or SomaDados == 12:
           fichas_iniciais+= 8*AcAposta
-          print("\nParabéns! Você ganhou {0} Fichas no Any Craps!\n\nNúmero de Fichas disponíveis: {1}" .format(str(AcAposta), str(fichas_iniciais)))
+          print("\nParabéns! Você ganhou {0} fichas no Any Craps!\n\nNúmero de fichas disponíveis: {1}" .format(str(AcAposta), str(fichas_iniciais)))
         else:
-          print("\nVocê perdeu {0} Fichas no Any Craps.\n\nNúmero de Fichas disponíveis: {1}" .format(str(AcAposta), str(fichas_iniciais)))
+          print("\nVocê perdeu {0} fichas no Any Craps.\n\nNúmero de fichas disponíveis: {1}" .format(str(AcAposta), str(fichas_iniciais)))
         AcAposta = 0
       
       if TAposta > 0:
         if SomaDados == 12:
           fichas_iniciais+= 31*TAposta
-          print("\nParabéns! Você ganhou {0} Fichas no Twelve!\n\nNúmero de Fichas disponíveis: {1}" .format(str(TAposta), str(fichas_iniciais)))
+          print("\nParabéns! Você ganhou {0} fichas no Twelve!\n\nNúmero de fichas disponíveis: {1}" .format(str(TAposta), str(fichas_iniciais)))
         else:
-          print("\nVocê perdeu {0} Fichas no Twelve.\n\nNúmero de Fichas disponíveis: {1}" .format(str(TAposta), str(fichas_iniciais)))
+          print("\nVocê perdeu {0} fichas no Twelve.\n\nNúmero de fichas disponíveis: {1}" .format(str(TAposta), str(fichas_iniciais)))
         TAposta = 0   
       ContinuaOp = False 
 
